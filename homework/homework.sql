@@ -57,6 +57,9 @@ SELECT
 	ORDER BY DATE(payment_date) DESC 
 
 -- find average payment 
+SELECT 	
+	ROUND(AVG(amount),4) AS average_payment
+	FROM payment
 
 -- find average payment per customer [ordered from highest to lowest by amount spent]
 SELECT 	
@@ -73,3 +76,6 @@ SELECT
 	ORDER BY AVG(amount) DESC
 
 -- sum all payments
+SELECT 	
+	ROUND(SUM(amount),2) AS all_payments_value_$
+	FROM payment
