@@ -50,5 +50,26 @@ SELECT
 
 ----------------------------------------------------- GROUP BY
 -- find total payment by date
--- find average payment
+SELECT 	
+	DATE(payment_date), SUM(amount)
+	FROM payment
+	GROUP BY DATE(payment_date)
+	ORDER BY DATE(payment_date) DESC 
+
+-- find average payment 
+
+-- find average payment per customer [ordered from highest to lowest by amount spent]
+SELECT 	
+	payment.customer_id, AVG(amount)
+	FROM payment
+	GROUP BY customer_id
+	ORDER BY AVG(amount) DESC
+
+-- find average payment collected by staff members [ordered from highest to lowest by amount spent]
+SELECT 	
+	payment.staff_id, AVG(amount)
+	FROM payment
+	GROUP BY staff_id
+	ORDER BY AVG(amount) DESC
+
 -- sum all payments
